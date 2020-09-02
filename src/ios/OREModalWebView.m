@@ -24,18 +24,20 @@ alpha:(((c)>>24)&0xFF)/255.0]
   NSString *title = [[command arguments] objectAtIndex:1];
   NSURL *url = [NSURL URLWithString:strURL];
   OREModalWebViewController *rootController = [[OREModalWebViewController alloc] init];
-  rootController.delegate = self;
+
+    rootController.delegate = self;
   rootController.title = title;
   rootController.errorTextColor = self._errorTextColor;
   rootController.errorBackgroundColor = self._errorBackgroundColor;
   rootController.orientation = self._orientation;
   self.modalController = rootController;
   UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:rootController];
-  
+
+    //naviController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
   [self.viewController presentViewController:naviController animated:YES completion:^{
     [rootController open:url];
   }];
-  
+
   CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
   [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }

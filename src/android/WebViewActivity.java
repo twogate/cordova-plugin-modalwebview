@@ -55,6 +55,12 @@ public class WebViewActivity extends AppCompatActivity {
   }
 
   @Override
+  protected void onStart() {
+    super.onStart();
+    this.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 1000);
+  }
+
+  @Override
   protected void onCreate(Bundle bundle) {
     super.onCreate(bundle);
     //getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);

@@ -8,6 +8,11 @@
 @end
 
 @implementation OREModalWebViewController
+- (void)viewWillLayoutSubviews {
+[super viewWillLayoutSubviews];
+  self.view.frame = CGRectMake(0,0,self.view.frame.size.width,500);
+}
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   if (!self.errorTextColor) {
@@ -31,7 +36,7 @@
   NSDictionary *views = NSDictionaryOfVariableBindings(webView);
   [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[webView]-(0)-|" options:0 metrics:0 views:views]];
   [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[webView]-(0)-|" options:0 metrics:0 views:views]];
- 
+
   [self.webView addObserver:self forKeyPath:@"loading" options:NSKeyValueObservingOptionNew context:nil];
   [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
 
