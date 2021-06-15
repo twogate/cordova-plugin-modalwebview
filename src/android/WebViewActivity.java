@@ -11,9 +11,9 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.ColorInt;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -207,7 +207,7 @@ public class WebViewActivity extends AppCompatActivity {
           });
       View snackbarView = snackbar.getView();
       if (this.errorTextColor != Color.TRANSPARENT) {
-        TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = (TextView) snackbarView.findViewById(com.google.android.material.R.id.snackbar_text);
         textView.setTextColor(this.errorTextColor);
       }
       if (this.errorBackgroundColor != Color.TRANSPARENT) {
